@@ -7,11 +7,23 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata: Metadata = { title: "Brand · Factwright" };
 
 const COLOURS = [
-  { name: "Forest", hex: "#1f3b2d", use: "Text and dark backgrounds" },
-  { name: "Moss", hex: "#3f6b4f", use: "Second half of the name" },
-  { name: "Sky", hex: "#3876ba", use: "Links and the top of the sky" },
-  { name: "Sky light", hex: "#8cbfe8", use: "The bottom of the sky" },
-  { name: "Cream", hex: "#fbf8f2", use: "Page background and the mark's strokes" },
+  { name: "Forest", hex: "#1f3b2d", use: "The brackets, the name and dark backgrounds" },
+  { name: "Moss", hex: "#3f6b4f", use: "Hover states and accents" },
+  { name: "Sky", hex: "#3876ba", use: "The block in the mark, and links" },
+  { name: "Sky light", hex: "#8cbfe8", use: "The block on dark backgrounds" },
+  { name: "Cream", hex: "#fbf8f2", use: "Page background, and the brackets on dark" },
+];
+
+const DOWNLOADS = [
+  { label: "Logo, wide", file: "factwright-horizontal.svg" },
+  { label: "Logo, wide on dark", file: "factwright-horizontal-reversed.svg" },
+  { label: "Logo, stacked", file: "factwright-stacked.svg" },
+  { label: "Symbol", file: "factwright-symbol.svg" },
+  { label: "Symbol, black", file: "factwright-symbol-black.svg" },
+  { label: "Symbol, white", file: "factwright-symbol-white.svg" },
+  { label: "Wordmark", file: "factwright-wordmark.svg" },
+  { label: "App icon (SVG)", file: "factwright-app-icon.svg" },
+  { label: "App icon (PNG)", file: "factwright-icon-512.png" },
 ];
 
 export default function BrandPage() {
@@ -21,7 +33,7 @@ export default function BrandPage() {
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-14 sm:px-6">
         <h1 className="text-3xl font-semibold tracking-tight text-forest sm:text-4xl">The Factwright brand</h1>
         <p className="mt-3 max-w-2xl text-stone-600">
-          The mark is an F whose middle arm turns into a tick: a fact, checked. It draws itself in when a page loads, and a light passes over it when you hover.
+          The mark is called Cited: citation square brackets, like the ones around [2025] in a neutral citation, holding one solid block. It means a claim held to its source. When a page loads the fact lands first and the brackets close in around it; on hover they open a little.
         </p>
 
         <div className="mt-8">
@@ -45,13 +57,23 @@ export default function BrandPage() {
                 <dd className="text-forest">The evidence operating system for UK law firms and finance teams.</dd>
               </div>
             </dl>
-            <a
-              href="/brand/factwright-mark.svg"
-              download
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-forest px-4 py-2 text-sm font-medium text-cream transition hover:bg-moss"
-            >
-              <Download className="h-4 w-4" /> Download the mark (SVG)
-            </a>
+            <h2 className="mt-8 text-lg font-semibold text-forest">Downloads</h2>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {DOWNLOADS.map((d) => (
+                <li key={d.file}>
+                  <a
+                    href={`/brand/${d.file}`}
+                    download
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-sm text-stone-700 transition hover:text-forest"
+                  >
+                    <Download className="h-3.5 w-3.5" /> {d.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-xs text-stone-500">
+              Keep clear space around the mark equal to the bracket thickness. Don&apos;t use the symbol smaller than 16 px, and use the app icon for browser tabs and avatars.
+            </p>
           </div>
           <div>
             <h2 className="text-lg font-semibold text-forest">Colours</h2>

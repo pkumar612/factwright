@@ -24,7 +24,10 @@ export function BrandShowcase() {
         </button>
       </div>
       <div className="grid min-h-72 place-items-center rounded-3xl bg-forest p-10">
-        <LogoMark className="h-32 w-32 sm:h-40 sm:w-40" replayKey={replay} />
+        <div className="flex items-center gap-4">
+          <LogoMark className="h-16 w-16 sm:h-20 sm:w-20" replayKey={replay} reversed />
+          <Wordmark className="text-4xl sm:text-5xl" replayKey={replay} reversed />
+        </div>
       </div>
     </div>
   );
