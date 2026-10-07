@@ -27,20 +27,20 @@ export function LivePreview() {
 
   return (
     <div ref={ref} className="relative mx-auto w-full max-w-3xl">
-      <div aria-hidden className="absolute -inset-px rounded-2xl bg-gradient-to-b from-indigo-400/30 via-transparent to-emerald-400/20 blur-sm" />
-      <div className="relative overflow-hidden rounded-2xl border border-line bg-panel shadow-2xl shadow-indigo-950/40">
+      <div aria-hidden className="absolute -inset-px rounded-2xl bg-gradient-to-b from-sky/30 via-transparent to-moss/20 blur-sm" />
+      <div className="relative overflow-hidden rounded-2xl border border-line bg-white shadow-2xl shadow-forest/10">
         <div className="flex items-center gap-2 border-b border-line px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-          <span className="ml-3 text-xs text-slate-500">Skeleton argument (draft).docx</span>
-          <span className="ml-auto text-xs text-slate-500">{shown < LINES.length ? "Checking…" : `${LINES.length} checks done`}</span>
+          <span className="h-2.5 w-2.5 rounded-full bg-forest/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-forest/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-forest/15" />
+          <span className="ml-3 text-xs text-stone-500">Skeleton argument (draft).docx</span>
+          <span className="ml-auto text-xs text-stone-500">{shown < LINES.length ? "Checking…" : `${LINES.length} checks done`}</span>
         </div>
-        <div className="relative space-y-5 p-5 font-mono text-[13px] leading-relaxed text-slate-300 sm:p-7">
+        <div className="relative space-y-5 p-5 font-mono text-[13px] leading-relaxed text-stone-700 sm:p-7">
           {shown < LINES.length && inView && (
             <motion.div
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 h-16 bg-gradient-to-b from-transparent via-indigo-400/10 to-transparent"
+              className="pointer-events-none absolute inset-x-0 h-16 bg-gradient-to-b from-transparent via-sky/10 to-transparent"
               animate={{ top: ["0%", "90%"] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }}
             />
@@ -65,7 +65,7 @@ export function LivePreview() {
                       className="shrink-0 sm:w-56"
                     >
                       <StatusPill status={line.status} />
-                      <p className="mt-1.5 font-sans text-xs text-slate-400">{line.note}</p>
+                      <p className="mt-1.5 font-sans text-xs text-stone-600">{line.note}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
