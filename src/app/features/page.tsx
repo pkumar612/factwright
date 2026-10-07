@@ -6,7 +6,7 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { CloudShader } from "@/components/ui/cloud-shader";
 import { MovingBorderLink } from "@/components/ui/moving-border";
 import { cn } from "@/lib/cn";
-import { FEATURE_AREAS, NOT_BUILDING, type FeatureStatus } from "@/lib/features";
+import { FEATURE_AREAS, type FeatureStatus } from "@/lib/features";
 
 export const metadata: Metadata = { title: "Features · Factwright" };
 
@@ -58,15 +58,6 @@ export default function FeaturesPage() {
                 </div>
               </section>
             ))}
-
-            <section className="rounded-2xl border border-line bg-white p-6">
-              <h2 className="text-lg font-semibold text-forest">What we&apos;re deliberately not building</h2>
-              <ul className="mt-3 space-y-2 text-sm text-stone-600">
-                {NOT_BUILDING.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </section>
           </div>
 
           <div className="mt-14 text-center">

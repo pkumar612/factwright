@@ -82,9 +82,3 @@ export const FEATURE_AREAS: FeatureArea[] = [
     ],
   },
 ];
-
-export const NOT_BUILDING = [
-  "Training our own UK-law model: we check against official sources instead.",
-  "Detecting whether text was written by AI: what matters is whether it's true.",
-  "Meeting notes and adviser productivity tools: a crowded market we'd rather partner with.",
-];
