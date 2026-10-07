@@ -17,6 +17,12 @@ const FEATURES = [
   { Icon: Link2, title: "Links and sources", body: "Cited links are opened, and the page is checked for the figure it's cited for.", wide: true },
 ];
 
+const MODULES = [
+  { name: "Verify", badge: "Live", live: true, body: "Checks citations, statutes, quotes and figures against their sources." },
+  { name: "Govern", badge: "Next", live: false, body: "Tracks which AI tools touch which matters, with client consent and policies." },
+  { name: "Decide", badge: "Later", live: false, body: "Auditable case decisions for one high-volume workflow at a time." },
+];
+
 const STEPS = [
   { n: "01", title: "Drop in a document", body: "A Word file, PDF or pasted text. A Word add-in comes next." },
   { n: "02", title: "Every claim is extracted", body: "Citations, statutes, quotes, figures and links, each tied to its place in the text." },
@@ -33,20 +39,32 @@ export default function Home() {
           <CloudShader className="min-h-[46rem] w-full" speed={0.8} count={5} fadeTo="#fbf8f2">
             <div className="mx-auto max-w-6xl px-4 pb-56 pt-20 text-center sm:px-6 sm:pt-28">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-3 py-1 text-xs text-white backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#d6f0c2]" /> Preview · UK case law, legislation and figures
+                <span className="h-1.5 w-1.5 rounded-full bg-[#d6f0c2]" /> Preview · Built for UK law firms and finance teams
               </span>
               <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white drop-shadow-[0_2px_12px_rgb(31_59_45/0.25)] sm:text-6xl">
-                <TextGenerate words="Nothing leaves your firm unverified." highlight={["unverified."]} />
+                <TextGenerate words="The evidence operating system for UK law firms." highlight={["evidence"]} />
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-base text-white/90 drop-shadow-[0_1px_8px_rgb(31_59_45/0.3)] sm:text-lg">
-                Factwright checks every case citation, statute, quote and figure in a document against its source, before a judge, a client or a journalist does.
+                One platform where every citation, figure and AI-assisted decision is checked against its source, governed by your policies and kept on the record. Set up around your firm&apos;s matters, clients and regulators.
               </p>
+              <ul className="mx-auto mt-8 grid max-w-3xl gap-2 text-left sm:grid-cols-3">
+                {MODULES.map((m) => (
+                  <li key={m.name} className="rounded-2xl border border-white/25 bg-[rgb(31_59_45/0.3)] px-4 py-3 text-white backdrop-blur-md">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-semibold">{m.name}</span>
+                      <span className={m.live ? "rounded-full bg-[#d6f0c2] px-2 py-0.5 text-[11px] font-medium text-forest" : "rounded-full bg-white/20 px-2 py-0.5 text-[11px] text-white/90"}>{m.badge}</span>
+                    </div>
+                    <p className="mt-1 text-xs leading-relaxed text-white/85">{m.body}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-xs text-white/80">Shared across all three: matter memory, an audit trail and compliance packs.</p>
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <MovingBorderLink href="/check">
-                  Check a sample document <ArrowRight className="h-4 w-4" />
+                  Try Verify on a sample <ArrowRight className="h-4 w-4" />
                 </MovingBorderLink>
-                <Link href="/check?mode=upload" className="rounded-full px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15">
-                  Upload your own
+                <Link href="/features" className="rounded-full px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15">
+                  See the whole platform
                 </Link>
               </div>
             </div>
@@ -84,8 +102,11 @@ export default function Home() {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <p className="text-sm font-medium text-brand">What it checks</p>
-          <h2 className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight text-forest">Every claim, traced to the paragraph it came from.</h2>
+          <p className="text-sm font-medium text-brand">Verify, live in this preview</p>
+          <h2 className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight text-forest">Nothing leaves your firm unverified.</h2>
+          <p className="mt-3 max-w-2xl text-stone-600">
+            Verify checks every case citation, statute, quote and figure in a document against its source, before a judge, a client or a journalist does.
+          </p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {FEATURES.map(({ Icon, title, body, wide }) => (
               <CardSpotlight key={title} className={wide ? "md:col-span-2" : undefined}>

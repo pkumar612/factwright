@@ -6,9 +6,9 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Factwright: nothing leaves your firm unverified",
+  title: "Factwright: the evidence operating system for UK law firms",
   description:
-    "Factwright checks every case citation, statute, quote and figure in a document against its source before it goes out.",
+    "One platform for UK law firms and finance teams: verify every citation and figure against its source, govern AI use, and keep every decision on the record.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
