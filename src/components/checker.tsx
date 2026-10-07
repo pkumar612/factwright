@@ -68,7 +68,7 @@ export function Checker({ samples, initialMode }: { samples: SampleCard[]; initi
         <div className="mx-auto max-w-3xl px-4 pt-14 text-center sm:px-6 sm:pt-16">
           <h1 className="text-3xl font-semibold tracking-tight text-white drop-shadow-[0_2px_12px_rgb(31_59_45/0.25)] sm:text-4xl">Check a document</h1>
           <p className="mx-auto mt-3 max-w-xl text-white/90 drop-shadow-[0_1px_8px_rgb(31_59_45/0.3)]">
-            Try a sample, or upload a public or redacted document. Please don&apos;t upload confidential client files to this preview.
+            Samples are checked against saved copies of the real sources, so they always give the same result. Uploads are looked up live. Please use public or redacted documents only.
           </p>
         </div>
       </CloudShader>

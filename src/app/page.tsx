@@ -39,7 +39,7 @@ export default function Home() {
           <CloudShader className="min-h-[46rem] w-full" speed={0.8} count={5} fadeTo="#fbf8f2">
             <div className="mx-auto max-w-6xl px-4 pb-56 pt-20 text-center sm:px-6 sm:pt-28">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-3 py-1 text-xs text-white backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#d6f0c2]" /> Preview · Built for UK law firms and finance teams
+                <span className="h-1.5 w-1.5 rounded-full bg-[#d6f0c2]" /> Built for UK law firms and finance teams
               </span>
               <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white drop-shadow-[0_2px_12px_rgb(31_59_45/0.25)] sm:text-6xl">
                 <TextGenerate words="The evidence operating system for UK law firms." highlight={["evidence"]} />
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="why" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6">
+        <section id="why" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-20 sm:px-6">
           <p className="text-sm font-medium text-brand">Why now</p>
           <h2 className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight text-forest">AI drafts faster than anyone can check it. Courts and clients have noticed.</h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -127,7 +127,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6">
+        <section id="how" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-20 sm:px-6">
           <p className="text-sm font-medium text-brand">How it works</p>
           <h2 className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight text-forest">Lookups first, judgement second.</h2>
           <ol className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">

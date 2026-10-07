@@ -4,6 +4,11 @@ import { Logo } from "./logo";
 export function SiteHeader() {
   return (
     <header className="no-print sticky top-0 z-40 border-b border-line bg-cream/80 backdrop-blur-xl">
+      <p className="bg-forest px-4 py-1.5 text-center text-xs text-cream/90">
+        <span className="font-semibold text-cream">Proof of concept.</span>{" "}
+        <span className="hidden sm:inline">Checks run on our server against official UK sources; the samples use saved copies of those sources. </span>
+        Please don&apos;t upload confidential documents.
+      </p>
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Logo />
         <nav className="flex items-center gap-1 text-sm text-stone-600">
