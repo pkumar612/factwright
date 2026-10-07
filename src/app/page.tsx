@@ -18,9 +18,9 @@ const FEATURES = [
 ];
 
 const MODULES = [
-  { name: "Verify", badge: "Live", live: true, body: "Checks citations, statutes, quotes and figures against their sources." },
-  { name: "Govern", badge: "Next", live: false, body: "Tracks which AI tools touch which matters, with client consent and policies." },
-  { name: "Decide", badge: "Later", live: false, body: "Auditable case decisions for one high-volume workflow at a time." },
+  { name: "Verify", badge: "Available now", live: true, body: "Checks citations, statutes, quotes and figures against their sources before a document goes out." },
+  { name: "Govern", badge: "Planned", live: false, body: "A record of which AI tools touch which matters, with client consent and firm policy." },
+  { name: "Decide", badge: "Planned", live: false, body: "Auditable decisions for one high-volume workflow at a time." },
 ];
 
 const STEPS = [
@@ -39,32 +39,20 @@ export default function Home() {
           <CloudShader className="min-h-[46rem] w-full" speed={0.8} count={5} fadeTo="#fbf8f2">
             <div className="mx-auto max-w-6xl px-4 pb-56 pt-20 text-center sm:px-6 sm:pt-28">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-3 py-1 text-xs text-white backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#d6f0c2]" /> Built for UK law firms and finance teams
+                <span className="h-1.5 w-1.5 rounded-full bg-[#d6f0c2]" /> For UK litigation teams
               </span>
               <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white drop-shadow-[0_2px_12px_rgb(31_59_45/0.25)] sm:text-6xl">
-                <TextGenerate words="The evidence operating system for UK law firms." highlight={["evidence"]} />
+                <TextGenerate words="Every authority checked before you file." highlight={["checked"]} />
               </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-base text-white/90 drop-shadow-[0_1px_8px_rgb(31_59_45/0.3)] sm:text-lg">
-                One platform where every citation, figure and AI-assisted decision is checked against its source, governed by your policies and kept on the record. Set up around your firm&apos;s matters, clients and regulators.
+              <p className="mx-auto mt-6 max-w-[46rem] text-base text-white/90 drop-shadow-[0_1px_8px_rgb(31_59_45/0.3)] sm:text-lg">
+                Drop in a skeleton argument, witness statement or letter before action. Factwright checks every case citation, statute and quote against the National Archives and legislation.gov.uk, and flags anything that doesn&apos;t match, with the source beside it.
               </p>
-              <ul className="mx-auto mt-8 grid max-w-3xl gap-2 text-left sm:grid-cols-3">
-                {MODULES.map((m) => (
-                  <li key={m.name} className="rounded-2xl border border-white/25 bg-[rgb(31_59_45/0.3)] px-4 py-3 text-white backdrop-blur-md">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="font-semibold">{m.name}</span>
-                      <span className={m.live ? "rounded-full bg-[#d6f0c2] px-2 py-0.5 text-[11px] font-medium text-forest" : "rounded-full bg-white/20 px-2 py-0.5 text-[11px] text-white/90"}>{m.badge}</span>
-                    </div>
-                    <p className="mt-1 text-xs leading-relaxed text-white/85">{m.body}</p>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3 text-xs text-white/80">Shared across all three: matter memory, an audit trail and compliance packs.</p>
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <MovingBorderLink href="/check">
-                  Try Verify on a sample <ArrowRight className="h-4 w-4" />
+                  Check a sample argument <ArrowRight className="h-4 w-4" />
                 </MovingBorderLink>
-                <Link href="/features" className="rounded-full px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15">
-                  See the whole platform
+                <Link href="/check?mode=upload" className="rounded-full px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15">
+                  Upload your own
                 </Link>
               </div>
             </div>
@@ -139,6 +127,29 @@ export default function Home() {
               </li>
             ))}
           </ol>
+        </section>
+
+        <section id="vision" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-20 sm:px-6">
+          <p className="text-sm font-medium text-brand">Where this is going</p>
+          <h2 className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight text-forest">The first piece of an evidence operating system for law firms.</h2>
+          <p className="mt-3 max-w-2xl text-stone-600">
+            Verify is what you can use today. The plan is to build on the same evidence trail, one piece at a time, as firms ask for it.
+          </p>
+          <ul className="mt-10 grid gap-4 md:grid-cols-3">
+            {MODULES.map((m) => (
+              <li key={m.name} className={m.live ? "rounded-2xl border border-verified/30 bg-white p-6" : "rounded-2xl border border-dashed border-line bg-white/60 p-6"}>
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="font-semibold text-forest">{m.name}</h3>
+                  <span className={m.live ? "rounded-full bg-verified/10 px-2.5 py-0.5 text-xs font-medium text-verified ring-1 ring-verified/30" : "rounded-full bg-stone-500/10 px-2.5 py-0.5 text-xs text-stone-600 ring-1 ring-stone-400/30"}>{m.badge}</span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600">{m.body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm text-stone-500">
+            Also planned: the same checks for finance teams&apos; board reports, plus matter memory and compliance packs across the platform.{" "}
+            <Link href="/features" className="text-stone-700 underline hover:text-forest">See every feature</Link>
+          </p>
         </section>
 
         <section className="relative overflow-hidden px-4 py-24 text-center sm:px-6">
