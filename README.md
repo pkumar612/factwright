@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Factwright
 
-## Getting Started
+Checks every case citation, statute, quote, figure and link in a document against its source before it goes out.
 
-First, run the development server:
+This is a preview. It covers:
+
+- **Case citations:** UK neutral citations are looked up on [Find Case Law](https://caselaw.nationalarchives.gov.uk) (The National Archives). Made-up cases and citations that belong to a different case are flagged. Law report citations (WLR, AC and so on) are marked "check by hand".
+- **Legislation:** sections and subsections of UK Public General Acts are checked on [legislation.gov.uk](https://www.legislation.gov.uk).
+- **Quotes:** quoted words near a citation are matched against the judgment or section, down to a single changed word.
+- **Figures:** "X of Y (Z%)", totals, growth rates, breakdowns that should sum to 100%, and the same metric stated twice with different values.
+- **Links:** cited links are opened, and the page is checked for the figure it's cited for.
+
+All checks are plain lookups and arithmetic; no AI model or API key is needed yet.
+
+## Run it locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm test        # engine tests, including both built-in samples
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy a free preview on Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Sign in at [vercel.com](https://vercel.com) with GitHub.
+2. Choose **Add New → Project**, import `factwright`, and keep the defaults.
+3. Click **Deploy**. You get a link like `factwright.vercel.app` to share.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Every push to `main` redeploys automatically.
 
-## Learn More
+## Before sharing widely
 
-To learn more about Next.js, take a look at the following resources:
+- Apply for the free [Find Case Law computational analysis licence](https://caselaw.nationalarchives.gov.uk/re-use-find-case-law-records/licence-application-process). Automated checking of judgments needs it.
+- Ask testers to use public or redacted documents only.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Where things live
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Path | What it does |
+| --- | --- |
+| `src/lib/extract.ts` | Finds citations, section references and quotes |
+| `src/lib/sources/` | Find Case Law and legislation.gov.uk lookups, plus snapshots used by the samples |
+| `src/lib/figures.ts` | Arithmetic checks on figures |
+| `src/lib/links.ts` | Link checks |
+| `src/lib/check.ts` | Runs every check and builds the report |
+| `src/app/api/check/route.ts` | `POST /api/check` with a file, text or sample id |
+| `src/components/` | Landing page, checker and results UI (Aceternity-style motion components in `ui/`) |
